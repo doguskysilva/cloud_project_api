@@ -1,0 +1,30 @@
+{
+  "name": "cloud_project_api",
+  "version": "1.0.0",
+  "description": "Aplicação RestAPI para um TODO list",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doguskysilva/cloud_project_api.git"
+  },
+  "keywords": [
+    "todo",
+    "restapi",
+    "heroku"
+  ],
+  "author": "Douglas Silva <dogusky.silva@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/doguskysilva/cloud_project_api/issues"
+  },
+  "homepage": "https://github.com/doguskysilva/cloud_project_api#readme",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "sqlite3": "^4.2.0"
+  }
+}
