@@ -3,7 +3,7 @@ const Promise = require('bluebird')
 
 function dao() {
 
-    let db = new sqlite3.Database('./../tasks.sqlite', (err) => {
+    let db = new sqlite3.Database('./tasks.sqlite', (err) => {
         if (err) {
             console.log(err.message)
         } else {
