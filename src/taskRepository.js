@@ -19,7 +19,7 @@ function taskRepository () {
         return dataAccessLayer.run(sql)
     }
 
-    const all = () => dataAccessLayer.all(`SELECT * FROM tasks`);
+    const all = () => dataAccessLayer.all(`SELECT id, name, isComplete, createdAt FROM tasks`);
     
     const findById = (id) => dataAccessLayer.get(`SELECT * FROM tasks WHERE id = ?`, [id])
     
@@ -30,9 +30,35 @@ function taskRepository () {
         )
     }
     
-    const update = () => {}
+    const update = (id, name, description) => {
+        return dataAccessLayer.run(
+            `UPDATE tasks SET 
+                name = ?,
+                description = ?,
+                updatedAt = ?
+            WHERE id = ?
+            `,
+            [name, description, now(), id]
+        )
+    }
     
-    const destroy = () => {}
+    const destroy = (id) => {
+        return dataAccessLayer.run(
+            `DELETE from tasks WHERE id = ?`,
+            [id]
+        )
+    }
+
+    const complete = (id) => {
+        return dataAccessLayer.run(
+            `UPDATE tasks SET 
+                isComplete = 1,
+                updatedAt = ?
+            WHERE id = ?
+            `,
+            [now(), id]
+        )
+    }
 
     return {
         createTable,
@@ -40,7 +66,8 @@ function taskRepository () {
         findById,
         store,
         update,
-        destroy
+        destroy,
+        complete
     }
 }
 
